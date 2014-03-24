@@ -10,8 +10,9 @@
   <%= @photo.image_name %>
 </p>
 <p>
-	<% url= Dragonfly.app.remote_url_for(@photo.image_uid)%>
-	<%= image_tag url %>
+	<%#= Dragonfly.app.remote_url_for(@photo.image_uid)%>
+	<%= image_tag @photo.image.thumb('100x100').url%>
+	<%#= image_tag @photo.image.remote_url %>
 </p>
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
