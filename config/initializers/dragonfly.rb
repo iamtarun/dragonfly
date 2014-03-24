@@ -10,17 +10,22 @@ Dragonfly.app.configure do
 
   url_format "/media/:job/:name"
 
-  # datastore :file,
-  #   root_path: Rails.root.join('public/system/dragonfly', Rails.env),
-  #   server_root: Rails.root.join('public')
+  #developmat environment
+  if Rails.env.development?
+    datastore :file,
+      root_path: Rails.root.join('public/system/dragonfly', Rails.env),
+      server_root: Rails.root.join('public')
+  end
+
   #Dragonfly.app.datastore = Dragonfly::DataStorage::S3DataStore.new({
 		#datastore.configure do |d|
+  if Rails.env.production?  
 		datastore :s3,
     	bucket_name: "commeasure-staging-assets",
     	access_key_id: "AKIAIXLPW2M2TOGFPVKQ",
     	secret_access_key: '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',
     	url_host: "commeasure-staging-assets.s3.amazonaws.com"
-   #	end
+  end
 end
 
 # Logger
