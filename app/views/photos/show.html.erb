@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image uid:</strong>
+  <%= @photo.image_uid %>
+</p>
+
+<p>
+  <strong>Image name:</strong>
+  <%= @photo.image_name %>
+</p>
+<p>
+	<% url= Dragonfly.app.remote_url_for(@photo.image_uid)%>
+	<%= image_tag url %>
+</p>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
