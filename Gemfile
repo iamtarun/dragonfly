@@ -31,6 +31,7 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+gem 'quiet_assets'
 gem 'unf'
 gem 'dragonfly-s3_data_store'
 gem 'rmagick', '~> 2.13.2'
